@@ -12,8 +12,10 @@ RUN apk add --no-cache linux-headers \
 
 COPY ansible-lint-with-rules /usr/bin/
 
+RUN chmod +x /usr/bin/ansible-lint-with-rules
+
 VOLUME ["/mnt"]
 
 WORKDIR /mnt
 
-ENTRYPOINT [ "sh", "-c", "/usr/bin/ansible-lint-with-rules" ]
+ENTRYPOINT [ "/usr/bin/ansible-lint-with-rules" ]
