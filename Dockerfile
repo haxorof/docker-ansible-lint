@@ -16,4 +16,4 @@ VOLUME ["/mnt"]
 
 WORKDIR /mnt
 
-ENTRYPOINT [ "/usr/bin/ansible-lint-with-rules" ]
+ENTRYPOINT [ "sh", "-c", "/usr/bin/ansible-lint-with-rules" ]
