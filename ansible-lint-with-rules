@@ -1,2 +1,0 @@
-#!/bin/sh
-ansible-lint -r /galaxy-lint-rules/rules $@
