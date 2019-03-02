@@ -1,8 +1,8 @@
 # Ansible-lint
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/haxorof/ansible-lint.svg)](https://hub.docker.com/r/haxorof/ansible-lint/)
-[![Docker Build Status](https://img.shields.io/docker/build/haxorof/ansible-lint.svg)](https://hub.docker.com/r/haxorof/ansible-lint/builds/)
-[![Docker Automated build](https://img.shields.io/docker/automated/haxorof/ansible-lint.svg)](https://hub.docker.com/r/haxorof/ansible-lint/builds/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/haxorof/ansible-lint.svg?style=popout-square)](https://hub.docker.com/r/haxorof/ansible-lint/)
+[![Docker Build Status](https://img.shields.io/docker/build/haxorof/ansible-lint.svg?style=popout-square)](https://hub.docker.com/r/haxorof/ansible-lint/builds/)
+[![Docker Automated build](https://img.shields.io/docker/automated/haxorof/ansible-lint.svg?style=popout-square)](https://hub.docker.com/r/haxorof/ansible-lint/builds/)
 
 > "ansible-lint checks playbooks for practices and behaviour that could potentially be improved"
 [ansible-lint](https://github.com/willthames/ansible-lint)
