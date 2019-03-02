@@ -7,6 +7,7 @@ RUN apk add --no-cache linux-headers \
     git \
     openssh \
     && pip install ansible-lint \
+    && rm -rf /var/cache/apk/* \
     && rm -rf /root/.cache
 
 VOLUME ["/mnt"]
