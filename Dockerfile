@@ -8,6 +8,7 @@ RUN apk add --no-cache linux-headers \
     openssl-dev \
     git \
     openssh \
+    sshpass \
     && python3 -m pip install --no-cache-dir --upgrade pip \
     && python3 -m pip install --no-cache-dir -r requirements.txt \
     && rm -rf /var/cache/apk/* \
