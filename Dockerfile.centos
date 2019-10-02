@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:8
 
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
     org.opencontainers.image.description="Ansible-lint" \
