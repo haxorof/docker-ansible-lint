@@ -1,7 +1,7 @@
 FROM python:3.8.3-alpine
 
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
-    org.opencontainers.image.description="Ansible-lint"
+      org.opencontainers.image.description="Ansible-lint"
 
 COPY requirements.txt .
 
