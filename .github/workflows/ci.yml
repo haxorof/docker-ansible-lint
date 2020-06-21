@@ -37,7 +37,7 @@ jobs:
       - name: Lint Dockerfile
         uses: docker://replicated/dockerfilelint:latest
         with:
-          args: Dockerfile
+          args: Dockerfile.${{ matrix.os }}
 
       - uses: docker/build-push-action@v1
         with:
