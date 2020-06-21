@@ -1,21 +1,20 @@
-FROM centos:7
+FROM centos:8
 
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
-    org.opencontainers.image.description="Ansible-lint" \
-    org.opencontainers.image.source="https://github.com/haxorof/docker-ansible-lint" \
-    org.opencontainers.image.licenses="MIT"    
+    org.opencontainers.image.description="Ansible-lint"
 
 COPY requirements.txt .
 
 RUN yum install -y epel-release \
+    && yum clean all \
+    && yum makecache \
     && yum upgrade -y \
     && yum install -y \
     openssh \
-    sshpass \
     git \
-    python-pip \
-    && python -m pip install --no-cache-dir --upgrade pip \
-    && python -m pip install --no-cache-dir -r requirements.txt \
+    python3-pip \
+    && python3 -m pip install --no-cache-dir --upgrade pip \
+    && python3 -m pip install --no-cache-dir -r requirements.txt \
     && yum clean all \
     && rm -rf /var/cache/yum
 

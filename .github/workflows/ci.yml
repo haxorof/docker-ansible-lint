@@ -1,0 +1,51 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron:  '0 0 * * 0'
+
+jobs:
+  build_push:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [centos, main]
+        version: [latest]    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Determine tag format
+        id: tag_formatter
+        run: |
+          if [[ "$MATRIX_OS" == 'main' ]]; then
+              # Instead of using symbolic links
+              cp Dockerfile.alpine Dockerfile.main > /dev/null 2>&1
+              echo "::set-output name=format::$MATRIX_VERSION"
+          else
+              echo "::set-output name=format::${MATRIX_VERSION}-${MATRIX_OS}"
+          fi
+        env:
+          MATRIX_OS: ${{ matrix.os }}
+          MATRIX_VERSION: ${{ matrix.version }}
+
+      - name: Lint Dockerfile
+        uses: docker://replicated/dockerfilelint:latest
+        with:
+          args: Dockerfile
+
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: haxorof/ansible-lint
+          dockerfile: Dockerfile.${{ matrix.os }}
+          tags: ${{ steps.tag_formatter.outputs.format }}
+          tag_with_sha: false
+          add_git_labels: true
+          push: ${{ endsWith(github.ref, '/master') }}
