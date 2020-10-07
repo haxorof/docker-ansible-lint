@@ -59,7 +59,7 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.licenses=${{ github.event.repository.license.name }}
           tags: haxorof/ansible-lint:${{ steps.prep.outputs.tag }}
-          file: Dockerfile.${{ matrix.os }}
+          file: ./Dockerfile.${{ matrix.os }}
           push: ${{ endsWith(github.ref, '/master') }}
 
   update_docker_hub_description:
