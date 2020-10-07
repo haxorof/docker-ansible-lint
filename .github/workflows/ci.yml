@@ -72,7 +72,7 @@ jobs:
 
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v2
-        env:
+        with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: haxorof/ansible-lint
