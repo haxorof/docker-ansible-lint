@@ -3,7 +3,7 @@ FROM python:3.9.1-alpine
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
       org.opencontainers.image.description="Ansible-lint"
 
-COPY requirements.txt .
+COPY requirements/requirements.txt ./requirements.txt
 
 RUN apk add --no-cache linux-headers \
     build-base \
@@ -11,7 +11,7 @@ RUN apk add --no-cache linux-headers \
     openssl-dev \
     git \
     openssh \
-    cargo \    
+    cargo \
     && python3 -m pip install --no-cache-dir --upgrade pip \
     && python3 -m pip install --no-cache-dir -r requirements.txt \
     && rm -rf /var/cache/apk/* \

@@ -3,19 +3,19 @@ FROM centos:8
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
       org.opencontainers.image.description="Ansible-lint"
 
-COPY requirements.txt .
+COPY requirements/requirements.txt ./requirements.txt
 
-RUN yum install -y epel-release \
-    && yum clean all \
-    && yum makecache \
-    && yum upgrade -y \
-    && yum install -y \
+RUN dnf install -y epel-release \
+    && dnf clean all \
+    && dnf makecache \
+    && dnf upgrade -y \
+    && dnf install -y \
     openssh \
     git \
     python3-pip \
     && python3 -m pip install --no-cache-dir --upgrade pip \
     && python3 -m pip install --no-cache-dir -r requirements.txt \
-    && yum clean all \
+    && dnf clean all \
     && rm -rf /var/cache/yum
 
 VOLUME ["/mnt"]
