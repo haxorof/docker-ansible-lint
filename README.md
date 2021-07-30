@@ -19,3 +19,25 @@ To make it easier to use this container you could setup bash aliases by creating
 ```bash
 alias ansible-lint='docker run -it --rm -v ${PWD}:/mnt:ro haxorof/ansible-lint'
 ```
+
+## Use in Github Actions
+
+```yaml
+name: Linting
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Ansible Linting
+        run: docker run --rm -v ${GITHUB_WORKSPACE}:/mnt haxorof/ansible-lint -v --force-color .
+```
