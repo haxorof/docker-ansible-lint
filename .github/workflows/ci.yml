@@ -20,7 +20,7 @@ jobs:
       LATEST_VERSION: v5
     strategy:
       matrix:
-        os: [alpine, centos]
+        os: [alpine, almalinux8]
         version: [v4, v5]
     steps:
       - name: Checkout
