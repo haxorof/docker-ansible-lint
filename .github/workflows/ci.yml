@@ -32,10 +32,7 @@ jobs:
           TAGS="${IMAGE_NAME}:${MATRIX_VERSION}-${MATRIX_OS}"
           if [[ "$MATRIX_OS" == "$LATEST_OS" ]]; then
             TAGS="${TAGS},${IMAGE_NAME}:$MATRIX_VERSION"
-            if [[ "$MATRIX_VERSION" == "$LATEST_VERSION" ]]; then
-              TAGS="${TAGS},${IMAGE_NAME}:latest-${MATRIX_OS},${IMAGE_NAME}:latest"
-            fi
-          elif [[ "$MATRIX_VERSION" == "$LATEST_VERSION" ]]; then
+          else
             TAGS="${TAGS},${IMAGE_NAME}:latest-${MATRIX_OS}"
           fi
           echo "::set-output name=tags::${TAGS}"

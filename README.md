@@ -6,6 +6,21 @@
 > "ansible-lint checks playbooks for practices and behaviour that could potentially be improved"
 [ansible-lint](https://github.com/willthames/ansible-lint)
 
+## Simple Tags
+
+- `v6-alpine`
+- `v5-almalinux8`
+- `v5-alpine`
+
+## Shared Tags
+
+- `v6`, `latest-alpine`, `latest`
+  - `v6-alpine`
+- `v5`
+  - `v5-alpine`
+- `latest-almalinux8`
+  - `v5-almalinux8`
+
 ## How to use this image
 
 ```console
