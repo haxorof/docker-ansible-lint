@@ -1,4 +1,4 @@
-FROM almalinux:8.5-minimal-20220306
+FROM almalinux:8.5-20220306
 
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
       org.opencontainers.image.description="Ansible-lint"
