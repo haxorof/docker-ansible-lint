@@ -67,7 +67,7 @@ jobs:
 
       - name: Test built image
         run: |
-          docker run --rm -v ${PWD}/test/${{ matrix.version }}:/mnt:ro ${{ steps.prep.outputs.test_tag }}
+          docker run --rm -v ${PWD}/test/${{ matrix.version }}:/mnt:ro ${{ steps.prep.outputs.test_tag }} -v --force-color .
 
       - name: Login to DockerHub
         uses: docker/login-action@v1.14.1
