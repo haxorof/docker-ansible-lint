@@ -28,7 +28,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          cp requirements/requirements-${MATRIX_VERSION}.txt requirements/requirements.txt
+          cp requirements/${MATRIX_VERSION}/requirements.txt requirements/requirements.txt
           TAGS="${IMAGE_NAME}:${MATRIX_VERSION}-${MATRIX_OS}"
           TEST_TAG="${TAGS}"
           if [[ "$MATRIX_OS" == "$LATEST_OS" ]]; then
@@ -104,7 +104,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          cp requirements/requirements-${MATRIX_VERSION}.txt requirements/requirements.txt
+          cp requirements/${MATRIX_VERSION}/requirements.txt requirements/requirements.txt
           TAGS="${IMAGE_NAME}:${MATRIX_VERSION}-${MATRIX_OS}"
           TEST_TAG="${TAGS}"
           if [[ "$MATRIX_OS" == "$LATEST_OS" ]]; then
