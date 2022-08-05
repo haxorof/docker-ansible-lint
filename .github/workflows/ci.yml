@@ -16,7 +16,6 @@ env:
 
 jobs:
   build_push:
-    needs: build_push_before_python38
     runs-on: ubuntu-latest
     strategy:
       matrix:
