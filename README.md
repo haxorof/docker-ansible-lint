@@ -8,8 +8,9 @@
 
 ## Simple Tags
 
+- `v6-almalinux`
 - `v6-alpine`
-- `v5-almalinux8`
+- `v5-almalinux`
 - `v5-alpine`
 
 ## Shared Tags
@@ -18,8 +19,8 @@
   - `v6-alpine`
 - `v5`
   - `v5-alpine`
-- `latest-almalinux8`
-  - `v5-almalinux8`
+- `latest-almalinux`
+  - `v6-almalinux`
 
 ## How to use this image
 
