@@ -1,2 +1,2 @@
-ansible
+ansible==7.6.0
 ansible-lint==5.4.0
