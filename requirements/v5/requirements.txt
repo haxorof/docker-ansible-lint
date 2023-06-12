@@ -1,2 +1,2 @@
-ansible<8.0.0
+ansible<9.0.0
 ansible-lint==5.4.0
