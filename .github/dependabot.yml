@@ -43,3 +43,14 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
+
+  # Maintain dependencies for ansible-lint v24
+  - package-ecosystem: pip
+    directory: "/requirements/v24"
+    schedule:
+      interval: daily
+    assignees:
+      - "haxorof"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
