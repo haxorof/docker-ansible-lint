@@ -11,16 +11,15 @@ on:
 
 env:
   IMAGE_NAME: haxorof/ansible-lint
-  LATEST_OS: alpine
-  LATEST_VERSION: v24
+  LATEST_VERSION: v6
 
 jobs:
   build_push:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [alpine]
-        version: [v5, v6, v24]
+        os: [almalinux]
+        version: [v5, v6]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,12 +30,7 @@ jobs:
           cp requirements/${MATRIX_VERSION}/requirements.txt requirements/requirements.txt
           TAGS="${IMAGE_NAME}:${MATRIX_VERSION}-${MATRIX_OS}"
           TEST_TAG="${TAGS}"
-          if [[ "$MATRIX_OS" == "$LATEST_OS" ]]; then
-            TAGS="${TAGS},${IMAGE_NAME}:$MATRIX_VERSION"
-            if [[ "$MATRIX_VERSION" == "$LATEST_VERSION" ]]; then
-              TAGS="${TAGS},${IMAGE_NAME}:latest-${MATRIX_OS},${IMAGE_NAME}:latest"
-            fi
-          elif [[ "$MATRIX_VERSION" == "$LATEST_VERSION" ]]; then
+          if [[ "$MATRIX_VERSION" == "$LATEST_VERSION" ]]; then
             TAGS="${TAGS},${IMAGE_NAME}:latest-${MATRIX_OS}"
           fi
           echo "test_tag=${TEST_TAG}" >> $GITHUB_OUTPUT
