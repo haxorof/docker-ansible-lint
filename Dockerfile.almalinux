@@ -1,7 +1,10 @@
-FROM almalinux:9.3-20231124
+FROM almalinux/9-base:9.3-20231124
 
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
       org.opencontainers.image.description="Ansible-lint"
+
+ENV VIRTUAL_ENV=/.env
+ENV PATH=$VIRTUAL_ENV/bin:$PATH
 
 COPY requirements/requirements.txt ./requirements.txt
 
@@ -12,9 +15,11 @@ RUN dnf install -y epel-release \
     && dnf install -y \
     openssh \
     git \
-    python3-pip \
-    && python3 -m pip install --no-cache-dir --upgrade pip \
-    && python3 -m pip install --no-cache-dir -r requirements.txt \
+    python3.11 \
+    python3.11-pip \
+    && python3.11 -m venv ${VIRTUAL_ENV} \
+    && python3.11 -m pip install --no-cache-dir --upgrade pip \
+    && python3.11 -m pip install --no-cache-dir -r requirements.txt \
     && dnf clean all \
     && rm -rf /var/cache/yum
 

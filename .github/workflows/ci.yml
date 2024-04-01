@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [alpine]
+        os: [alpine, almalinux]
         version: [v5, v6, v24]
     steps:
       - name: Checkout

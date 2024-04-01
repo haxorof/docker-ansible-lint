@@ -23,7 +23,7 @@
 - `v5`
   - `v5-alpine`
 - `latest-almalinux`
-  - `v6-almalinux`
+  - `v24-almalinux`
 
 ## How to use this image
 
