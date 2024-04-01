@@ -86,38 +86,3 @@ jobs:
           context: .
           file: ./Dockerfile.${{ matrix.os }}
           push: ${{ endsWith(github.ref, '/master') }}
-
-  dependabot:
-    if: ${{ github.event_name == 'pull_request' && github.actor == 'dependabot[bot]' }}
-    needs: build_push
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Dependabot metadata
-        id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v2.0.0
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Enable auto-merge for Dependabot PRs
-        if: ${{steps.dependabot-metadata.outputs.package-ecosystem == 'github_actions'}}
-        run: gh pr merge --auto --merge "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  update_docker_hub_description:
-    if: ${{ endsWith(github.ref, '/master') }}
-    needs: build_push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v4
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: ${{ env.IMAGE_NAME }}
