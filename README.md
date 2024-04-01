@@ -8,11 +8,10 @@
 
 ## Simple Tags
 
+- `v24-almalinux`
 - `v24-alpine`
 - `v6-almalinux`
 - `v6-alpine`
-- `v5-almalinux`
-- `v5-alpine`
 
 ## Shared Tags
 
@@ -20,8 +19,6 @@
   - `v24-alpine`
 - `v6`
   - `v6-alpine`
-- `v5`
-  - `v5-alpine`
 - `latest-almalinux`
   - `v24-almalinux`
 
