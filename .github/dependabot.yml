@@ -6,7 +6,7 @@ groups:
     update-types:
     - "minor"
     - "patch"
-    
+
 updates:
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
@@ -22,17 +22,6 @@ updates:
       interval: daily
     assignees:
       - "haxorof"
-  # Maintain dependencies for ansible-lint v5
-  - package-ecosystem: pip
-    directory: "/requirements/v5"
-    schedule:
-      interval: daily
-    assignees:
-      - "haxorof"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
-
   # Maintain dependencies for ansible-lint v6
   - package-ecosystem: pip
     directory: "/requirements/v6"
@@ -43,7 +32,6 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
-
   # Maintain dependencies for ansible-lint v24
   - package-ecosystem: pip
     directory: "/requirements/v24"
