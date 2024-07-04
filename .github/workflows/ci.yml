@@ -58,7 +58,7 @@ jobs:
         uses: docker/setup-buildx-action@v3.4.0
 
       - name: Build (test build linux/amd64)
-        uses: docker/build-push-action@v6.2.0
+        uses: docker/build-push-action@v6.3.0
         with:
           load: true
           labels: |
@@ -83,7 +83,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push (linux/amd64,linux/arm64)
-        uses: docker/build-push-action@v6.2.0
+        uses: docker/build-push-action@v6.3.0
         with:
           labels: |
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
