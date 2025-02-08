@@ -8,19 +8,19 @@
 
 ## Simple Tags
 
+- `v25-almalinux`
+- `v25-alpine`
 - `v24-almalinux`
 - `v24-alpine`
-- `v6-almalinux`
-- `v6-alpine`
 
 ## Shared Tags
 
-- `v24`, `latest-alpine`, `latest`
+- `v25`, `latest-alpine`, `latest`
+  - `v25-alpine`
+- `v24`
   - `v24-alpine`
-- `v6`
-  - `v6-alpine`
 - `latest-almalinux`
-  - `v24-almalinux`
+  - `v25-almalinux`
 
 ## How to use this image
 
