@@ -1,2 +1,1 @@
-ansible-lint==25.9.2
-ansible-core<2.20
+ansible-lint==25.11.10
