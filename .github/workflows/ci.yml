@@ -23,7 +23,7 @@ jobs:
         version: [v24, v25]
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Prepare
         id: prep
@@ -123,7 +123,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v5
