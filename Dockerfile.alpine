@@ -1,4 +1,4 @@
-FROM python:3.13.7-alpine
+FROM alpine:3.23
 
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
       org.opencontainers.image.description="Ansible-lint"
@@ -8,13 +8,11 @@ ENV PATH=$VIRTUAL_ENV/bin:$PATH
 
 COPY requirements/requirements.txt ./requirements.txt
 
-RUN apk add --no-cache linux-headers \
-    build-base \
-    libffi-dev \
-    openssl-dev \
+RUN apk update \
+    apk add --no-cache \
     git \
     openssh \
-    cargo \
+    python3 \
     && python3 -m venv ${VIRTUAL_ENV} \
     && python3 -m pip install --no-cache-dir --upgrade pip \
     && python3 -m pip install --no-cache-dir -r requirements.txt \
