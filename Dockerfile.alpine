@@ -9,7 +9,7 @@ ENV PATH=$VIRTUAL_ENV/bin:$PATH
 COPY requirements/requirements.txt ./requirements.txt
 
 RUN apk update \
-    apk add --no-cache \
+    && apk add --no-cache \
     git \
     openssh \
     python3 \
