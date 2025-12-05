@@ -29,7 +29,7 @@ jobs:
         id: prep
         run: |
           cp requirements/${MATRIX_VERSION}/requirements.txt requirements/requirements.txt
-          // Workaround for ansible-lint v24 on AlmaLinux
+          # Workaround for ansible-lint v24 on AlmaLinux
           if [[ "$MATRIX_OS" == "almalinux" && "$MATRIX_VERSION" == "v24" ]]; then
             echo "ansible-core<2.19" >> requirements/requirements.txt
           fi          
