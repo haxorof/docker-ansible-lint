@@ -22,7 +22,17 @@ updates:
       interval: daily
     assignees:
       - "haxorof"
-  # Maintain dependencies for ansible-lint v25
+  # Maintain dependencies for ansible-lint
+  - package-ecosystem: pip
+    directory: "/requirements/v24"
+    schedule:
+      interval: daily
+    assignees:
+      - "haxorof"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+  # Maintain dependencies for ansible-lint
   - package-ecosystem: pip
     directory: "/requirements/v25"
     schedule:
@@ -32,9 +42,9 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
-  # Maintain dependencies for ansible-lint v24
+  # Maintain dependencies for ansible-lint
   - package-ecosystem: pip
-    directory: "/requirements/v24"
+    directory: "/requirements/v26"
     schedule:
       interval: daily
     assignees:

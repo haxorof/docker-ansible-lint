@@ -12,7 +12,7 @@ on:
 env:
   IMAGE_NAME: haxorof/ansible-lint
   LATEST_OS: alpine
-  LATEST_VERSION: v24
+  LATEST_VERSION: v26
 
 jobs:
   build_push:
@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         os: [alpine, almalinux]
-        version: [v24, v25]
+        version: [v24, v25, v26]
     steps:
       - name: Checkout
         uses: actions/checkout@v6
