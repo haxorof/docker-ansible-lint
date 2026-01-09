@@ -1,12 +1,4 @@
 version: 2
-groups:
-  ansible-lint:
-    patterns:
-    - "ansible-lint"
-    update-types:
-    - "minor"
-    - "patch"
-
 updates:
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
