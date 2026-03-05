@@ -104,6 +104,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      repository-projects: write
     steps:
       - name: Dependabot metadata
         id: dependabot-metadata
