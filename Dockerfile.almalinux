@@ -1,4 +1,4 @@
-FROM almalinux/9-base:9.7-20260501
+FROM almalinux/9-base:9.7-20260502
 
 LABEL org.opencontainers.image.title="haxorof/ansible-lint" \
       org.opencontainers.image.description="Ansible-lint"
